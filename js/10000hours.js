@@ -8,18 +8,18 @@ const loading = document.querySelector(".result_loading");
 
 function calculator(){  /*()를 붙이는건 함수를 실행하라는명령*/
     const fieldValue = document.querySelector("#field_value");
-    let timeValue = document.querySelector("#time_value");/* Number로 입력받으니 _int 넣기 */
-    let timeValue_int = Number(timeValue.value);
+    const timeValue = document.querySelector("#time_value");/* Number로 입력받으니 _int 넣기 */
+    const timeValue_int = Number(timeValue.value);
 
     const fieldResult = document.querySelector(".field_result");
     const timeResult = document.querySelector(".time_result");
 
     if(fieldValue.value == ""){ /* 만약에 fieldValue에 아무것도 입력되지않았을경우 */
-        alert('입력되지 않았습니다.'); /* alert(경고창)을 띄운다 */
+        alert('분야가 입력되지 않았습니다.'); /* alert(경고창)을 띄운다 */
         fieldValue.focus();
         return false;
     } else if(timeValue.value == ""){
-        alert('입력되지 않았습니다.');
+        alert('시간이 입력되지 않았습니다.');
         timeValue.focus();
         return false;
     } else if (timeValue_int > 24){
@@ -36,7 +36,8 @@ function calculator(){  /*()를 붙이는건 함수를 실행하라는명령*/
         fieldResult.innerText = fieldValue.value;
         timeResult.innerText = parseInt((10000/timeValue_int), 10);
     }, 1800);   /* parseInt : 소수점자리는 빼고 나눈값을 출력. 10진수로. 1.8초뒤에 실행*/
-}
+
+ }
 
 function openModal(){
     modal.style.display = "flex";
